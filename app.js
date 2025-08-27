@@ -2,6 +2,7 @@
 
 let userscore = 0;
 let compscore = 0;
+let totaltries = 10;
 
 // select the user Rock, Paper and Scissor choices  
 
@@ -16,17 +17,31 @@ let compcount = document.querySelector("#comp-count");
 
 let winheading = document.querySelector("#result")
 
+// select the tries left paragraph
+
+let triesleft = document.querySelector("#tries-left");
+
+// select reset button 
+
+let resetbutton = document.querySelector("#reset-game-btn");
+
 // function to find what user select from choice
 
 choices.forEach((choice) => {
 
+    triesleft.innerHTML = totaltries;
+
     choice.addEventListener("click", ()=>{
+
+        if(totaltries == 0) return; 
 
         const userchoice = choice.getAttribute("id");
 
-        console.log(`you choose ${userchoice}`)
+        console.log(`you choose ${userchoice}`);
 
         playGame(userchoice);
+
+        checktriesleft();   
 
     });
 
@@ -70,6 +85,10 @@ const playGame = (userchoice) => {
 
         drawGame();
 
+        totaltries--;
+
+        triesleft.innerHTML = totaltries;
+
     }
     else{
 
@@ -112,6 +131,10 @@ const showWinner = (userchoice, compchoice, userwin) => {
 
         winheading.style.color = "white";
 
+        totaltries--;
+
+        triesleft.innerHTML = totaltries;
+
     }
     else{
 
@@ -125,8 +148,72 @@ const showWinner = (userchoice, compchoice, userwin) => {
 
         winheading.style.color = "white";
 
+        totaltries--;
+
+        triesleft.innerHTML = totaltries;
+
     }
 
 }
 
+// function to reset game
 
+resetbutton.addEventListener("click", () => {
+
+    console.log("reset button was clicked");
+
+    userscore = 0;
+
+    usercount.innerHTML = userscore;
+
+    compscore = 0;
+
+    compcount.innerHTML = compscore;
+
+    winheading.innerHTML = "Click on Choice to Start Game";
+
+    winheading.style.backgroundColor = "white";
+
+    winheading.style.color = "black";
+
+    totaltries = 10;
+
+    triesleft.innerHTML = totaltries;
+
+});
+
+function checktriesleft() {
+
+    if(totaltries == 0) {
+
+        console.log("tries end");
+
+        if(userscore > compscore){
+
+            winheading.innerHTML = "Game Over! You Won";
+
+            winheading.style.backgroundColor = "green";
+
+            winheading.style.color = "white";
+
+        }else if(userscore < compscore){
+
+            winheading.innerHTML = "Game Over! You Loose";
+
+            winheading.style.backgroundColor = "red";
+
+            winheading.style.color = "white";
+
+        }else{
+            
+            winheading.innerHTML = "Game Over! Its Draw";
+
+            winheading.style.backgroundColor = "#081b31";
+
+            winheading.style.color = "#ffffff";
+
+        }
+
+    } 
+
+}
