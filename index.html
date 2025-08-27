@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissor Game</title>
-    <link rel="stylesheet" href="/Rock Paper Scissor Game/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/Rock Paper Scissor Game/style.css" />
+  </head>
+  <body>
     <div class="heading">
-        <h3>Welcome! to Rock Paper Scissor Game...</h3>
+      <h3>Welcome! to Rock Paper Scissor Game...</h3>
     </div>
 
     <div class="choices">
+      <div class="choice" id="Rock">
+        <img
+          src="/Rock Paper Scissor Game/Assets/Images/rock.jpeg"
+          alt="Rock"
+        />
+      </div>
 
-        <div class="choice" id="Rock">
-            <img src="/Rock Paper Scissor Game/Assets/Images/rock.jpeg" alt="Rock">
-        </div>
+      <div class="choice" id="Paper">
+        <img
+          src="/Rock Paper Scissor Game/Assets/Images/paper.png"
+          alt="Paper"
+        />
+      </div>
 
-        <div class="choice" id="Paper">
-            <img src="/Rock Paper Scissor Game/Assets/Images/paper.png" alt="Paper" >
-        </div>
-
-        <div class="choice" id="Scissor">
-            <img src="/Rock Paper Scissor Game/Assets/Images/scissor.jpg" alt="Scissor">
-        </div>
-
+      <div class="choice" id="Scissor">
+        <img
+          src="/Rock Paper Scissor Game/Assets/Images/scissor.jpg"
+          alt="Scissor"
+        />
+      </div>
     </div>
 
     <div class="score-board">
+      <div class="your-score">
+        <p id="user-count">0</p>
+        <p class="para2">You</p>
+      </div>
 
-        <div class="your-score">
-            <p id="user-count">0</p>
-            <p class="para2">You</p>
-        </div>
-
-        <div class="comp-score">
-            <p id="comp-count">0</p>
-            <p class="para2">Computer</p>
-        </div>
-
+      <div class="comp-score">
+        <p id="comp-count">0</p>
+        <p class="para2">Computer</p>
+      </div>
     </div>
 
     <div class="winingtext">
-        <h2 id="result">Click on Choice to Start Game</h2>
+      <h2 id="result">Click on Choice to Start Game</h2>
     </div>
 
     <div class="tries-track">
-        <p>No of tries left</p>
-        <p id="tries-left">0</p>
+      <p>No of tries left</p>
+      <p id="tries-left">0</p>
     </div>
 
     <div class="reset-btn">
-        <button id="reset-game-btn" class="reset">Reset Game</button>
+      <button id="reset-game-btn" class="reset">Reset Game</button>
     </div>
-
-</body>
-    <script src="/Rock Paper Scissor Game/app.js"></script>
+  </body>
+  <script src="/Rock Paper Scissor Game/app.js"></script>
 </html>

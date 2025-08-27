@@ -37,8 +37,6 @@ choices.forEach((choice) => {
 
         const userchoice = choice.getAttribute("id");
 
-        console.log(`you choose ${userchoice}`);
-
         playGame(userchoice);
 
         checktriesleft();   
@@ -65,7 +63,7 @@ const drawGame = () => {
 
     console.log("Its an draw. Try Again..");
 
-    winheading.innerHTML = "Its an draw. Play Again...";
+    winheading.innerHTML = "Its Draw";
 
     winheading.style.backgroundColor = "#081b31";
 
@@ -78,8 +76,6 @@ const drawGame = () => {
 const playGame = (userchoice) => {
 
     let compchoice = computerchoice();
-
-    console.log(`computer choose ${compchoice}`)
 
     if(userchoice === compchoice){
 
@@ -125,7 +121,7 @@ const showWinner = (userchoice, compchoice, userwin) => {
 
         usercount.innerHTML = userscore;
 
-        winheading.innerHTML = "Congratulation! You Won...";
+        winheading.innerHTML = `Good move! ${userchoice} beats ${compchoice}`;
 
         winheading.style.backgroundColor = "green";
 
@@ -142,7 +138,7 @@ const showWinner = (userchoice, compchoice, userwin) => {
 
         compcount.innerHTML = compscore;
 
-        winheading.innerHTML = "Ah! You Loose...";
+        winheading.innerHTML = `Next time! ${compchoice} beats ${userchoice}`;
 
         winheading.style.backgroundColor = "red";
 
@@ -159,8 +155,6 @@ const showWinner = (userchoice, compchoice, userwin) => {
 // function to reset game
 
 resetbutton.addEventListener("click", () => {
-
-    console.log("reset button was clicked");
 
     userscore = 0;
 
@@ -182,11 +176,11 @@ resetbutton.addEventListener("click", () => {
 
 });
 
+// function to track the total tries and user and comp score
+
 function checktriesleft() {
 
     if(totaltries == 0) {
-
-        console.log("tries end");
 
         if(userscore > compscore){
 
